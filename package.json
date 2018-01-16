@@ -1,9 +1,12 @@
 {
     "name": "vscode-scope",
-    "displayName": "vscode-scope",
+    "displayName": "Scope",
     "description": "Scope support",
     "version": "0.0.1",
     "publisher": "yiwwan",
+    "scripts": {
+        "package": "vsce package"
+    },
     "engines": {
         "vscode": "^1.19.0"
     },
@@ -13,8 +16,14 @@
     "contributes": {
         "languages": [{
             "id": "scope",
-            "aliases": ["Scope", "scope"],
-            "extensions": [".script",".view"],
+            "aliases": [
+                "Scope",
+                "scope"
+            ],
+            "extensions": [
+                ".script",
+                ".view"
+            ],
             "configuration": "./language-configuration.json"
         }],
         "grammars": [{
@@ -22,5 +31,8 @@
             "scopeName": "source.scope",
             "path": "./syntaxes/scope.tmLanguage.json"
         }]
+    },
+    "devDependencies": {
+        "vsce": "^1.35.0"
     }
 }
