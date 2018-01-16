@@ -1,0 +1,82 @@
+{
+	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+	"name": "Scope",
+	"patterns": [{
+		"include": "#preprocessor"
+	}, {
+		"include": "#keywords"
+	}, {
+		"include": "#strings"
+	}, {
+		"include": "#comments"
+	}, {
+		"include": "#parameters"
+	}, {
+		"include": "#types"
+	}],
+	"repository": {
+		"preprocessor": {
+			"patterns": [{
+				"name": "meta.preprocessor.scope",
+				"match": "#\\b(CS|DECLARE|ERROR|IF|ELSE|ENDIF|SET|WARNING)\\b"
+			}]
+		},
+		"keywords": {
+			"patterns": [{
+				"name": "keyword.scope",
+				"match": "\\b(ALL|ALTER|ALTEREVENTTIME|AND|ANTISEMIJOIN|ANY|AS|BEGIN|BETWEEN|BROADCASTLEFT|BROADCASTRIGHT|BY|CLIP|COMBINE|CREATE|CROSS|CURRENT|DECLARE|DEFAULT|DELETE|DISTINCT|DROP|END|ENTITYSPACE|EXCEPT|EXECUTE|EXPORT|EXTRACT|FOLLOWING|FROM|FULL|FULLCROSS|GROUP|HASH|HAVING|IF|IMPORT|IN|INDEXLOOKUP|INNER|INTERSECT|IS|JOIN|LEFT|LOOP|MERGE|MODULE|MULTIPROCESS|NOT|NULL|ON|OR|ORDER|OUTER|OUTPUT|OVER|PAIR|PARTITION|PATTERN|PRECEDING|PRESORT|PROCESS|PRODUCE|PUBLICATION|RANGE|REDUCE|REFERENCE|RESOURCE|RIGHT|SAMPLE|SELECT|SEMIJOIN|SEQUENCE|SERIAL|SPARSE|SSTREAM|STREAMSET|STRUCT|TABLE|TO|TOP|UNBOUNDED|UNIFORM|UNION|UNIVERSE|UPDATE|USING|VIEW|WHERE|WITH|WITHIN)\\b"
+			}]
+		},
+		"parameters": {
+			"patterns": [{
+				"name": "variable.parameter",
+				"match": "@\\b([A-Za-z0-9_]*)\\b"
+			}, {
+				"name": "variable.parameter",
+				"match": "@@\\b([A-Za-z0-9_]*)\\b@@"
+			}]
+		},
+		"types": {
+			"patterns": [{
+				"name": "entity.name.type",
+				"match": "\\b(bool|byte|sbyte|char|decimal|double|float|int|uint|long|ulong|object|short|ushort|string)(\\?)?\\b"
+			}, {
+				"match": ":\\s*([A-Za-z0-9_\\.]*)(\\<(.*)\\>)?(\\?)?(\\[[0-9]*\\])?\\s*,?",
+				"captures": {
+					"1": {
+						"name": "entity.name.type"
+					},
+					"3": {
+						"name": "entity.name.type"
+					}
+				}
+			}, {
+				"name": "entity.name.type",
+				"match": "\\b(DateTime)\\b"
+			}]
+		},
+		"strings": {
+			"patterns": [{
+				"name": "string.quoted.double.scope",
+				"begin": "@?\"",
+				"end": "\"",
+				"patterns": [{
+					"name": "constant.character.escape.scope",
+					"match": "\\\\."
+				}]
+			}]
+		},
+		"comments": {
+			"patterns": [{
+				"name": "comment.line.double-dash",
+				"begin": "//",
+				"end": "$"
+			}, {
+				"name": "comment.block",
+				"begin": "/\\*",
+				"end": "\\*/"
+			}]
+		}
+	},
+	"scopeName": "source.scope"
+}
