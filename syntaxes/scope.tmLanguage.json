@@ -58,12 +58,16 @@
 		"strings": {
 			"patterns": [{
 				"name": "string.quoted.double.scope",
-				"begin": "@?\"",
+				"begin": "\"",
 				"end": "\"",
 				"patterns": [{
 					"name": "constant.character.escape.scope",
 					"match": "\\\\."
 				}]
+			}, {
+				"name": "string.quoted.double.scope",
+				"begin": "@\"",
+				"end": "\""
 			}]
 		},
 		"comments": {

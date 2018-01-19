@@ -2,7 +2,7 @@
     "name": "vscode-scope",
     "displayName": "Scope",
     "description": "Scope support",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "yiwwan",
     "scripts": {
         "package": "vsce package"
@@ -14,23 +14,27 @@
         "Languages"
     ],
     "contributes": {
-        "languages": [{
-            "id": "scope",
-            "aliases": [
-                "Scope",
-                "scope"
-            ],
-            "extensions": [
-                ".script",
-                ".view"
-            ],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "scope",
-            "scopeName": "source.scope",
-            "path": "./syntaxes/scope.tmLanguage.json"
-        }]
+        "languages": [
+            {
+                "id": "scope",
+                "aliases": [
+                    "Scope",
+                    "scope"
+                ],
+                "extensions": [
+                    ".script",
+                    ".view"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "scope",
+                "scopeName": "source.scope",
+                "path": "./syntaxes/scope.tmLanguage.json"
+            }
+        ]
     },
     "devDependencies": {
         "vsce": "^1.35.0"
