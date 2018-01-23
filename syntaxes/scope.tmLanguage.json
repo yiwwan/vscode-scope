@@ -24,35 +24,48 @@
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.scope",
-				"match": "\\b(ALL|ALTER|ALTEREVENTTIME|AND|ANTISEMIJOIN|ANY|AS|BEGIN|BETWEEN|BROADCASTLEFT|BROADCASTRIGHT|BY|CLIP|COMBINE|CREATE|CROSS|CURRENT|DECLARE|DEFAULT|DELETE|DISTINCT|DROP|END|ENTITYSPACE|EXCEPT|EXECUTE|EXPORT|EXTRACT|FOLLOWING|FROM|FULL|FULLCROSS|GROUP|HASH|HAVING|IF|IMPORT|IN|INDEXLOOKUP|INNER|INTERSECT|IS|JOIN|LEFT|LOOP|MERGE|MODULE|MULTIPROCESS|NOT|NULL|ON|OR|ORDER|OUTER|OUTPUT|OVER|PAIR|PARTITION|PATTERN|PRECEDING|PRESORT|PROCESS|PRODUCE|PUBLICATION|RANGE|REDUCE|REFERENCE|RESOURCE|RIGHT|SAMPLE|SELECT|SEMIJOIN|SEQUENCE|SERIAL|SPARSE|SSTREAM|STREAMSET|STRUCT|TABLE|TO|TOP|UNBOUNDED|UNIFORM|UNION|UNIVERSE|UPDATE|USING|VIEW|WHERE|WITH|WITHIN)\\b"
+				"match": "\\b(ALL|ALTER|ALTEREVENTTIME|AND|ANNOTATE|ANTISEMIJOIN|ANY|ARGUMENT|AS|ASSEMBLY|BEGIN|BETWEEN|BROADCASTLEFT|BROADCASTRIGHT|BY|CLIP|COMBINE|CREATE|CROSS|CURRENT|DATABASE|DECLARE|DEFAULT|DELETE|DEPLOY|DIRECT|DISTINCT|DROP|END|ENTITYSPACE|EXCEPT|EXECUTE|EXISTS|EXPORT|EXTRACT|FOLLOWING|FROM|FULL|FULLCROSS|GROUP|HASH|HAVING|IF|IMPORT|IN|INDEXLOOKUP|INNER|INTERSECT|IS|JOIN|LEFT|LOOP|MERGE|MODULE|MULTIPROCESS|NOT|NULL|ON|OPTION|OR|ORDER|OUTER|OUTPUT|OVER|PAIR|PARTITION|PARTITIONCOUNT|PARTITIONED|PARTITIONFUNCTION|PATTERN|PRECEDING|PRESORT|PROCESS|PRODUCE|PUBLICATION|RANGE|READONLY|REDUCE|REFERENCE|RESOURCE|RIGHT|SAMPLE|SELECT|SEMIJOIN|SEQUENCE|SERIAL|SPARSE|SSTREAM|STREAMSET|STRUCT|TABLE|TO|TOP|UNBOUNDED|UNIFORM|UNION|UNIVERSE|UPDATE|USE|USING|VIEW|WHERE|WITH|WITHIN)\\b"
+			}, {
+				"name": "keyword.scope",
+				"match": "\\b(false|new|true)\\b"
 			}]
 		},
 		"parameters": {
 			"patterns": [{
-				"name": "variable.parameter",
+				"name": "variable.parameter.scope",
 				"match": "@\\b([A-Za-z0-9_]*)\\b"
 			}, {
-				"name": "variable.parameter",
+				"name": "variable.parameter.scope",
 				"match": "@@\\b([A-Za-z0-9_]*)\\b@@"
 			}]
 		},
 		"types": {
 			"patterns": [{
-				"name": "entity.name.type",
+				"name": "entity.name.type.scope",
 				"match": "\\b(bool|byte|sbyte|char|decimal|double|float|int|uint|long|ulong|object|short|ushort|string)(\\?)?\\b"
 			}, {
 				"match": ":\\s*([A-Za-z0-9_\\.]*)(\\<(.*)\\>)?(\\?)?(\\[[0-9]*\\])?\\s*,?",
 				"captures": {
 					"1": {
-						"name": "entity.name.type"
+						"name": "entity.name.type.scope"
 					},
 					"3": {
-						"name": "entity.name.type"
+						"name": "entity.name.type.scope"
 					}
 				}
 			}, {
-				"name": "entity.name.type",
-				"match": "\\b(DateTime)\\b"
+				"match": "(CSHARP)\\((.*)\\)",
+				"captures": {
+					"1": {
+						"name": "keyword.scope"
+					},
+					"2": {
+						"name": "entity.name.type.scope"
+					}
+				}
+			}, {
+				"name": "entity.name.type.scope",
+				"match": "\\b(DateTime|Guid)\\b"
 			}]
 		},
 		"strings": {
@@ -72,11 +85,11 @@
 		},
 		"comments": {
 			"patterns": [{
-				"name": "comment.line.double-dash",
+				"name": "comment.line.double-dash.scope",
 				"begin": "//",
 				"end": "$"
 			}, {
-				"name": "comment.block",
+				"name": "comment.block.scope",
 				"begin": "/\\*",
 				"end": "\\*/"
 			}]
