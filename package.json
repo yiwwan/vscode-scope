@@ -1,9 +1,9 @@
 {
     "name": "vscode-scope",
     "displayName": "Scope",
-    "description": "Scope support",
+    "description": "Providing syntax highlighting for scope/usql scripts & views",
     "version": "0.0.5",
-    "publisher": "yiwwan",
+    "publisher": "vicey",
     "scripts": {
         "package": "vsce package"
     },
@@ -23,7 +23,8 @@
                 ],
                 "extensions": [
                     ".script",
-                    ".view"
+                    ".view",
+                    ".usql"
                 ],
                 "configuration": "./language-configuration.json"
             }
