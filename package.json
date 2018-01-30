@@ -2,17 +2,27 @@
     "name": "vscode-scope",
     "displayName": "Scope",
     "description": "Providing syntax highlighting for scope/usql scripts & views",
-    "version": "0.0.6",
+    "version": "0.0.7",
     "publisher": "vicey",
     "scripts": {
         "package": "vsce package"
     },
     "engines": {
-        "vscode": "^1.19.0"
+        "vscode": "^1.0.0"
     },
     "categories": [
         "Languages"
     ],
+    "license": "WTFPL",
+    "keywords": [
+        "scope",
+        "cosmos",
+        "usql"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/yhvicey/vscode-scope"
+    },
     "contributes": {
         "languages": [
             {

@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.7
+
+- Adjust package.json
+
 ## 0.0.6
 
 - Add README and CHANGELOG
