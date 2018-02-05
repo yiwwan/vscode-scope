@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.8
+
+- Add #ENDCS keyword
+
 ## 0.0.7
 
 - Adjust package.json
