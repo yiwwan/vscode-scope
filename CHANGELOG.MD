@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.10
+
+- Add support for Aggregates like SUM, MAX and LIST ([PR #1](https://github.com/yhvicey/vscode-scope/pull/1))
+
 ## 0.0.9
 
 - Add #ELSEIF keyword
