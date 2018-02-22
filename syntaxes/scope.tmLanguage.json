@@ -2,7 +2,7 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "Scope",
 	"patterns": [{
-		"include": "#aggregator"
+		"include": "#aggregators"
 	}, {
 		"include": "#comments"
 	}, {
@@ -17,7 +17,7 @@
 		"include": "#types"
 	}],
 	"repository": {
-		"aggregator": {
+		"aggregators": {
 			"patterns": [{
 				"name": "support.function.scope",
 				"match": "\\b(ANY_VALUE|ARRAY_AGG|AVG|COUNT|MAP_AGG|MAX|MIN|SUM|STDEV|STDEVP|VAR|VARP|CUME_DIST|FIRST_VALUE|LAST_VALUE|PERCENTILE_CONT|PERCENTILE_DISC|PERCENT_RANK|DENSE_RANK|NTILE|RANK|ROW_NUMBER|BETWEEN|IN|NOT IN|LIKE|NOT LIKE|AND|OR|NOT|LIST)\\(\\b"
