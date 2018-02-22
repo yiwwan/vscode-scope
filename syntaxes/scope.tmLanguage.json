@@ -2,25 +2,36 @@
 	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
 	"name": "Scope",
 	"patterns": [{
-		"include": "#preprocessor"
-	}, {
-		"include": "#keywords"
-	}, {
 		"include": "#aggregator"
-	}, {
-		"include": "#strings"
 	}, {
 		"include": "#comments"
 	}, {
+		"include": "#keywords"
+	}, {
 		"include": "#parameters"
+	}, {
+		"include": "#preprocessor"
+	}, {
+		"include": "#strings"
 	}, {
 		"include": "#types"
 	}],
 	"repository": {
-		"preprocessor": {
+		"aggregator": {
 			"patterns": [{
-				"name": "meta.preprocessor.scope",
-				"match": "#\\b(CS|DECLARE|ENDCS|ERROR|IF|ELSE|ELSEIF|ENDIF|SET|WARNING)\\b"
+				"name": "support.function.scope",
+				"match": "\\b(ANY_VALUE|ARRAY_AGG|AVG|COUNT|MAP_AGG|MAX|MIN|SUM|STDEV|STDEVP|VAR|VARP|CUME_DIST|FIRST_VALUE|LAST_VALUE|PERCENTILE_CONT|PERCENTILE_DISC|PERCENT_RANK|DENSE_RANK|NTILE|RANK|ROW_NUMBER|BETWEEN|IN|NOT IN|LIKE|NOT LIKE|AND|OR|NOT|LIST)\\b"
+			}]
+		},
+		"comments": {
+			"patterns": [{
+				"name": "comment.line.double-dash.scope",
+				"begin": "//",
+				"end": "$"
+			}, {
+				"name": "comment.block.scope",
+				"begin": "/\\*",
+				"end": "\\*/"
 			}]
 		},
 		"keywords": {
@@ -29,13 +40,7 @@
 				"match": "\\b(ALL|ALTER|ALTEREVENTTIME|AND|ANNOTATE|ANTISEMIJOIN|ANY|ARGUMENT|AS|ASC|ASSEMBLY|BEGIN|BETWEEN|BROADCASTLEFT|BROADCASTRIGHT|BY|CLIP|CLUSTERED|COMBINE|CREATE|CROSS|CURRENT|DATABASE|DECLARE|DEFAULT|DELETE|DEPLOY|DESC|DIRECT|DISTINCT|DROP|END|ENTITYSPACE|EXCEPT|EXECUTE|EXISTS|EXPORT|EXTRACT|FOLLOWING|FROM|FULL|FULLCROSS|GROUP|HASH|HAVING|IF|IMPORT|IN|INTO|INDEXLOOKUP|INNER|INTERSECT|IS|JOIN|LEFT|LOOP|MERGE|MODULE|MULTIPROCESS|NOT|NULL|ON|OPTION|OR|ORDER|OUTER|OUTPUT|OVER|PAIR|PARAMS|PARTITION|PARTITIONCOUNT|PARTITIONED|PARTITIONFUNCTION|PATTERN|PRECEDING|PRESORT|PROCESS|PRODUCE|PUBLICATION|RANGE|READONLY|REDUCE|REFERENCE|RESOURCE|RIGHT|SAMPLE|SCHEMA|SELECT|SEMIJOIN|SEQUENCE|SERIAL|SORTED|SPARSE|SSTREAM|STREAMEXPIRY|STREAMSET|STRUCT|TABLE|TO|TOP|UNBOUNDED|UNIFORM|UNION|UNIQUE|UNIVERSE|UPDATE|USE|USING|VIEW|WHERE|WITH|WITHIN)\\b"
 			}, {
 				"name": "keyword.scope",
-				"match": "\\b(false|new|true)\\b"
-			}]
-		},
-		"aggregator": {
-			"patterns": [{
-				"name": "support.function.scope",
-				"match": "\\b(ANY_VALUE|ARRAY_AGG|AVG|COUNT|MAP_AGG|MAX|MIN|SUM|STDEV|STDEVP|VAR|VARP|CUME_DIST|FIRST_VALUE|LAST_VALUE|PERCENTILE_CONT|PERCENTILE_DISC|PERCENT_RANK|DENSE_RANK|NTILE|RANK|ROW_NUMBER|BETWEEN|IN|NOT IN|LIKE|NOT LIKE|AND|OR|NOT|LIST)\\b"
+				"match": "\\b(false|new|null|true)\\b"
 			}]
 		},
 		"parameters": {
@@ -45,6 +50,27 @@
 			}, {
 				"name": "variable.parameter.scope",
 				"match": "@@\\b([A-Za-z0-9_]*)\\b@@"
+			}]
+		},
+		"preprocessor": {
+			"patterns": [{
+				"name": "meta.preprocessor.scope",
+				"match": "#\\b(CS|DECLARE|ENDCS|ERROR|IF|ELSE|ELSEIF|ENDIF|SET|WARNING)\\b"
+			}]
+		},
+		"strings": {
+			"patterns": [{
+				"name": "string.quoted.double.scope",
+				"begin": "\"",
+				"end": "\"",
+				"patterns": [{
+					"name": "constant.character.escape.scope",
+					"match": "\\\\."
+				}]
+			}, {
+				"name": "string.quoted.double.scope",
+				"begin": "@\"",
+				"end": "\""
 			}]
 		},
 		"types": {
@@ -74,32 +100,6 @@
 			}, {
 				"name": "entity.name.type.scope",
 				"match": "\\b(DateTime|Guid)\\b"
-			}]
-		},
-		"strings": {
-			"patterns": [{
-				"name": "string.quoted.double.scope",
-				"begin": "\"",
-				"end": "\"",
-				"patterns": [{
-					"name": "constant.character.escape.scope",
-					"match": "\\\\."
-				}]
-			}, {
-				"name": "string.quoted.double.scope",
-				"begin": "@\"",
-				"end": "\""
-			}]
-		},
-		"comments": {
-			"patterns": [{
-				"name": "comment.line.double-dash.scope",
-				"begin": "//",
-				"end": "$"
-			}, {
-				"name": "comment.block.scope",
-				"begin": "/\\*",
-				"end": "\\*/"
 			}]
 		}
 	},
