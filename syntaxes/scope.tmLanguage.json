@@ -6,6 +6,8 @@
 	}, {
 		"include": "#comments"
 	}, {
+		"include": "#csblock"
+	}, {
 		"include": "#keywords"
 	}, {
 		"include": "#parameters"
@@ -38,6 +40,25 @@
 				"end": "\\*/"
 			}]
 		},
+		"csblock": {
+			"patterns": [{
+				"begin": "#CS",
+				"beginCaptures": {
+					"0": {
+						"name": "keyword.scope"
+					}
+				},
+				"end": "#ENDCS",
+				"endCaptures": {
+					"0": {
+						"name": "keyword.scope"
+					}
+				},
+				"patterns": [{
+					"include": "source.cs"
+				}]
+			}]
+		},
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.scope",
@@ -59,7 +80,7 @@
 		"preprocessor": {
 			"patterns": [{
 				"name": "meta.preprocessor.scope",
-				"match": "#\\b(ARGUMENT|CS|DECLARE|ENDCS|ERROR|IF|ELSE|ELSEIF|ENDIF|SET|WARNING)\\b"
+				"match": "#\\b(ARGUMENT|DECLARE|ERROR|IF|ELSE|ELSEIF|ENDIF|SET|WARNING)\\b"
 			}]
 		},
 		"strings": {

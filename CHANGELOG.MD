@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.12
+
+- Support #CS and #ENDCS block
+
 ## 0.0.11
 
 - Adjust aggregator match pattern
