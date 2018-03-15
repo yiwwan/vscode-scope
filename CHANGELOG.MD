@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.13
+
+- Support **CROSS APPLY** keyword
+- Adjust **type** highlighting
+
 ## 0.0.12
 
 - Support #CS and #ENDCS block

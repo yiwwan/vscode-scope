@@ -14,9 +14,9 @@
 	}, {
 		"include": "#preprocessor"
 	}, {
-		"include": "#strings"
+		"include": "#schemas"
 	}, {
-		"include": "#types"
+		"include": "#strings"
 	}],
 	"repository": {
 		"aggregators": {
@@ -62,7 +62,7 @@
 		"keywords": {
 			"patterns": [{
 				"name": "keyword.scope",
-				"match": "\\b(ALL|ALTER|ALTEREVENTTIME|AND|ANNOTATE|ANTISEMIJOIN|ANY|AS|ASC|ASSEMBLY|BEGIN|BETWEEN|BROADCASTLEFT|BROADCASTRIGHT|BY|CLIP|CLUSTERED|COMBINE|CREATE|CROSS|CURRENT|DATABASE|DECLARE|DEFAULT|DELETE|DEPLOY|DESC|DIRECT|DISTINCT|DROP|END|ENTITYSPACE|EXCEPT|EXECUTE|EXISTS|EXPORT|EXTRACT|FOLLOWING|FROM|FULL|FULLCROSS|GROUP|HASH|HAVING|IF|IMPORT|IN|INTO|INDEXLOOKUP|INNER|INTERSECT|IS|JOIN|LEFT|LOOP|MERGE|MODULE|MULTIPROCESS|NOT|NULL|ON|OPTION|OR|ORDER|OUTER|OUTPUT|OVER|PAIR|PARAMS|PARTITION|PARTITIONCOUNT|PARTITIONED|PARTITIONFUNCTION|PATTERN|PRECEDING|PRESORT|PROCESS|PRODUCE|PUBLICATION|RANGE|READONLY|REDUCE|REFERENCE|RESOURCE|RIGHT|SAMPLE|SCHEMA|SELECT|SEMIJOIN|SEQUENCE|SERIAL|SORTED|SPARSE|SSTREAM|STREAMEXPIRY|STREAMSET|STRUCT|TABLE|TO|TOP|UNBOUNDED|UNIFORM|UNION|UNIQUE|UNIVERSE|UPDATE|USE|USING|VIEW|WHERE|WITH|WITHIN)\\b"
+				"match": "\\b(ALL|ALTER|ALTEREVENTTIME|AND|ANNOTATE|ANTISEMIJOIN|ANY|APPLY|AS|ASC|ASSEMBLY|BEGIN|BETWEEN|BROADCASTLEFT|BROADCASTRIGHT|BY|CLIP|CLUSTERED|COMBINE|CREATE|CROSS|CURRENT|DATABASE|DECLARE|DEFAULT|DELETE|DEPLOY|DESC|DIRECT|DISTINCT|DROP|END|ENTITYSPACE|EXCEPT|EXECUTE|EXISTS|EXPORT|EXTRACT|FOLLOWING|FROM|FULL|FULLCROSS|GROUP|HASH|HAVING|IF|IMPORT|IN|INTO|INDEXLOOKUP|INNER|INTERSECT|IS|JOIN|LEFT|LOOP|MERGE|MODULE|MULTIPROCESS|NOT|NULL|ON|OPTION|OR|ORDER|OUTER|OUTPUT|OVER|PAIR|PARAMS|PARTITION|PARTITIONCOUNT|PARTITIONED|PARTITIONFUNCTION|PATTERN|PRECEDING|PRESORT|PROCESS|PRODUCE|PUBLICATION|RANGE|READONLY|REDUCE|REFERENCE|RESOURCE|RIGHT|SAMPLE|SCHEMA|SELECT|SEMIJOIN|SEQUENCE|SERIAL|SORTED|SPARSE|SSTREAM|STREAMEXPIRY|STREAMSET|STRUCT|TABLE|TO|TOP|UNBOUNDED|UNIFORM|UNION|UNIQUE|UNIVERSE|UPDATE|USE|USING|VIEW|WHERE|WITH|WITHIN)\\b"
 			}, {
 				"name": "keyword.scope",
 				"match": "\\b(false|new|null|true)\\b"
@@ -83,6 +83,36 @@
 				"match": "#\\b(ARGUMENT|DECLARE|ERROR|IF|ELSE|ELSEIF|ENDIF|SET|WARNING)\\b"
 			}]
 		},
+		"schemas": {
+			"patterns": [{
+				"name": "keyword.scope",
+				"match": "\\b(bool|byte|sbyte|char|decimal|double|float|int|uint|long|ulong|object|short|ushort|string)(\\?)?\\b"
+			}, {
+				"name": "entity.name.type.scope",
+				"match": "\\b(DateTime|Guid|TimeSpan)\\b"
+			}, {
+				"match": ":\\s*([^,\\(\\)]+)\\s*,?",
+				"captures": {
+					"1": {
+						"patterns": [{
+							"include": "#types"
+						}]
+					}
+				}
+			}, {
+				"match": "(CSHARP)\\((.*)\\)",
+				"captures": {
+					"1": {
+						"name": "keyword.scope"
+					},
+					"2": {
+						"patterns": [{
+							"include": "#types"
+						}]
+					}
+				}
+			}]
+		},
 		"strings": {
 			"patterns": [{
 				"name": "string.quoted.double.scope",
@@ -101,30 +131,7 @@
 		"types": {
 			"patterns": [{
 				"name": "entity.name.type.scope",
-				"match": "\\b(bool|byte|sbyte|char|decimal|double|float|int|uint|long|ulong|object|short|ushort|string)(\\?)?\\b"
-			}, {
-				"match": ":\\s*([A-Za-z0-9_\\.]*)(\\<(.*)\\>)?(\\?)?(\\[[0-9]*\\])?\\s*,?",
-				"captures": {
-					"1": {
-						"name": "entity.name.type.scope"
-					},
-					"3": {
-						"name": "entity.name.type.scope"
-					}
-				}
-			}, {
-				"match": "(CSHARP)\\((.*)\\)",
-				"captures": {
-					"1": {
-						"name": "keyword.scope"
-					},
-					"2": {
-						"name": "entity.name.type.scope"
-					}
-				}
-			}, {
-				"name": "entity.name.type.scope",
-				"match": "\\b(DateTime|Guid)\\b"
+				"match": "[^<>,\\[\\]\\?\\.]"
 			}]
 		}
 	},
