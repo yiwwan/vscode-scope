@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.14
+
+- Bug fix
+
 ## 0.0.13
 
 - Support **CROSS APPLY** keyword
