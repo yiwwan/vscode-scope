@@ -48,6 +48,6 @@
         ]
     },
     "devDependencies": {
-        "vsce": "^1.35.0"
+        "vsce": "^1.44.0"
     }
 }
