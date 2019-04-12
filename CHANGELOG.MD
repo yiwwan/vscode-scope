@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.18
+
+- Support highlighting for `USING`
+- Support highlighting for numbers
+
 ## 0.0.17
 
 - Support `DEFINE`, `FUNC`, `RETURN` and `ROWSET` keywords for `.module` files
