@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.16
+
+- Support `.module` files
+
 ## 0.0.15
 
 - Add **COUNTIF** keyword
