@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.0.17
+
+- Support `DEFINE`, `FUNC`, `RETURN` and `ROWSET` keywords for `.module` files
+- Support highlighting for `Functions` and `Star Operators`
+- Support highlighting for `Constructors`
+
 ## 0.0.16
 
 - Support `.module` files
