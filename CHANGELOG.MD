@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.19
+
+- Add snippets for `SELECT`, `PROCESS`, `EXTRACT`, `VIEW` and `CREATE VIEW`.
+
 ## 0.0.18
 
 - Support highlighting for `USING`

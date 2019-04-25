@@ -1,0 +1,68 @@
+{
+    "CREATE VIEW Statement": {
+        "prefix": "CREATE VIEW",
+        "body": [
+            "CREATE VIEW ${1:ViewName}",
+            "SCHEMA",
+            "(",
+            "    ${2:Schemas}",
+            ")",
+            "PARAMS",
+            "(",
+            "    ${3:Params}",
+            ");",
+            "AS BEGIN",
+            "    ${4:Body}",
+            "END;"
+        ],
+        "description": "Code snippet for CREATE VIEW statement"
+    },
+    "EXTRACT Statement": {
+        "prefix": "EXTRACT",
+        "body": [
+            "EXTRACT",
+            "    ${3:Columns}",
+            "FROM ${1:DataSource}",
+            "USING ${2:Extractor}",
+            ";"
+        ],
+        "description": "Code snippet for EXTRACT statement"
+    },
+    "PROCESS Statement": {
+        "prefix": "PROCESS",
+        "body": [
+            "${1:DataSet} =",
+            "PROCESS ${2:DataSource}",
+            "USING ${3:Processor}",
+            "PRODUCE",
+            "    ${4:Columns}",
+            "WHERE ${5:Condition}",
+            ";"
+        ],
+        "description": "Code snippet for PROCESS statement"
+    },
+    "SELECT Statement": {
+        "prefix": "SELECT",
+        "body": [
+            "${1:DataSet} =",
+            "SELECT",
+            "    ${3:Columns}",
+            "FROM ${2:DataSource}",
+            "WHERE ${4:Condition}",
+            ";"
+        ],
+        "description": "Code snippet for SELECT statement"
+    },
+    "VIEW Statement": {
+        "prefix": "VIEW",
+        "body": [
+            "${1:DataSet} =",
+            "VIEW ${2:DataSource}",
+            "PARAMS",
+            "(",
+            "    ${3:Params}",
+            ");"
+        ],
+        "description": "Code snippet for VIEW statement"
+    }
+}

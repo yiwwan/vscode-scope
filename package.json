@@ -2,7 +2,7 @@
     "name": "vscode-scope",
     "displayName": "Scope",
     "description": "Providing syntax highlighting for scope/usql scripts & views",
-    "version": "0.0.18",
+    "version": "0.0.19",
     "publisher": "yiwwan",
     "scripts": {
         "package": "vsce package"
@@ -11,7 +11,8 @@
         "vscode": "^1.0.0"
     },
     "categories": [
-        "Programming Languages"
+        "Programming Languages",
+        "Snippets"
     ],
     "license": "WTFPL",
     "keywords": [
@@ -24,6 +25,11 @@
         "url": "https://github.com/yhvicey/vscode-scope"
     },
     "contributes": {
+        "grammars": [{
+            "language": "scope",
+            "scopeName": "source.scope",
+            "path": "./syntaxes/scope.tmLanguage.json"
+        }],
         "languages": [{
             "id": "scope",
             "aliases": [
@@ -38,10 +44,9 @@
             ],
             "configuration": "./language-configuration.json"
         }],
-        "grammars": [{
+        "snippets": [{
             "language": "scope",
-            "scopeName": "source.scope",
-            "path": "./syntaxes/scope.tmLanguage.json"
+            "path": "snippets/scope.json"
         }]
     },
     "devDependencies": {
