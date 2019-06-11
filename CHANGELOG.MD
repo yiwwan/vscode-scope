@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.20
+
+- Support `CALL PROCEDURE`, `ROWSETS` keywords.
+- Support `#LOOP`, `#ENDLOOP` and `#EVALUATE` preprocessors.
+
 ## 0.0.19
 
 - Add snippets for `SELECT`, `PROCESS`, `EXTRACT`, `VIEW` and `CREATE VIEW`.

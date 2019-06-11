@@ -1,55 +1,61 @@
 {
-    "name": "vscode-scope",
-    "displayName": "Scope",
-    "description": "Providing syntax highlighting for scope/usql scripts & views",
-    "version": "0.0.19",
-    "publisher": "yiwwan",
-    "scripts": {
-        "package": "vsce package"
-    },
-    "engines": {
-        "vscode": "^1.0.0"
-    },
-    "categories": [
-        "Programming Languages",
-        "Snippets"
+  "name": "vscode-scope",
+  "displayName": "Scope",
+  "description": "Providing syntax highlighting for scope/usql scripts & views",
+  "version": "0.0.20",
+  "publisher": "yiwwan",
+  "scripts": {
+    "package": "vsce package"
+  },
+  "engines": {
+    "vscode": "^1.0.0"
+  },
+  "categories": [
+    "Programming Languages",
+    "Snippets"
+  ],
+  "license": "WTFPL",
+  "keywords": [
+    "scope",
+    "cosmos",
+    "usql"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yhvicey/vscode-scope"
+  },
+  "contributes": {
+    "grammars": [
+      {
+        "language": "scope",
+        "scopeName": "source.scope",
+        "path": "./syntaxes/scope.tmLanguage.json"
+      }
     ],
-    "license": "WTFPL",
-    "keywords": [
-        "scope",
-        "cosmos",
-        "usql"
+    "languages": [
+      {
+        "id": "scope",
+        "aliases": [
+          "Scope",
+          "scope"
+        ],
+        "extensions": [
+          ".script",
+          ".view",
+          ".usql",
+          ".module"
+        ],
+        "configuration": "./language-configuration.json"
+      }
     ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/yhvicey/vscode-scope"
-    },
-    "contributes": {
-        "grammars": [{
-            "language": "scope",
-            "scopeName": "source.scope",
-            "path": "./syntaxes/scope.tmLanguage.json"
-        }],
-        "languages": [{
-            "id": "scope",
-            "aliases": [
-                "Scope",
-                "scope"
-            ],
-            "extensions": [
-                ".script",
-                ".view",
-                ".usql",
-                ".module"
-            ],
-            "configuration": "./language-configuration.json"
-        }],
-        "snippets": [{
-            "language": "scope",
-            "path": "snippets/scope.json"
-        }]
-    },
-    "devDependencies": {
-        "vsce": "^1.44.0"
-    }
+    "snippets": [
+      {
+        "language": "scope",
+        "path": "snippets/scope.json"
+      }
+    ]
+  },
+  "devDependencies": {
+    "vsce": "^1.44.0"
+  }
 }

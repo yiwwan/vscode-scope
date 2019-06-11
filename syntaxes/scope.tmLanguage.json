@@ -1,193 +1,255 @@
 {
-	"$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
-	"name": "Scope",
-	"patterns": [{
-		"include": "#aggregators"
-	}, {
-		"include": "#comments"
-	}, {
-		"include": "#constructor"
-	}, {
-		"include": "#csblock"
-	}, {
-		"include": "#functions"
-	}, {
-		"include": "#keywords"
-	}, {
-		"include": "#numbers"
-	}, {
-		"include": "#parameters"
-	}, {
-		"include": "#preprocessor"
-	}, {
-		"include": "#schemas"
-	}, {
-		"include": "#strings"
-	}, {
-		"include": "#types"
-	}, {
-		"include": "#using"
-	}],
-	"repository": {
-		"aggregators": {
-			"patterns": [{
-				"match": "\\b(AND|ANY_VALUE|ARRAY_AGG|AVG|BETWEEN|COUNT|COUNTIF|CUME_DIST|DENSE_RANK|FIRST|FIRST_VALUE|IN|LAST_VALUE|LIKE|LIST|MAP_AGG|MAX|MIN|NOT|NOT IN|NOT LIKE|NTILE|OR|PERCENT_RANK|PERCENTILE_CONT|PERCENTILE_DISC|RANK|ROW_NUMBER|STDEV|STDEVP|SUM|VAR|VARP)\\(\\b",
-				"captures": {
-					"1": {
-						"name": "support.function.scope"
-					}
-				}
-			}]
-		},
-		"comments": {
-			"patterns": [{
-				"name": "comment.line.double-dash.scope",
-				"begin": "//",
-				"end": "$"
-			}, {
-				"name": "comment.block.scope",
-				"begin": "/\\*",
-				"end": "\\*/"
-			}]
-		},
-		"constructor": {
-			"patterns": [{
-				"match": "(?<=new )([^\\(]*)",
-				"captures": {
-					"1": {
-						"patterns": [{
-							"include": "#typeName"
-						}]
-					}
-				}
-			}]
-		},
-		"csblock": {
-			"patterns": [{
-				"begin": "#CS",
-				"beginCaptures": {
-					"0": {
-						"name": "keyword.scope"
-					}
-				},
-				"end": "#ENDCS",
-				"endCaptures": {
-					"0": {
-						"name": "keyword.scope"
-					}
-				},
-				"patterns": [{
-					"include": "source.cs"
-				}]
-			}]
-		},
-		"functions": {
-			"patterns": [{
-				"name": "support.function.scope",
-				"match": "(?<=\\.)(\\w)+(?=\\()"
-			}]
-		},
-		"keywords": {
-			"patterns": [{
-				"name": "keyword.scope",
-				"match": "\\b(ALL|ALTER|ALTEREVENTTIME|AND|ANTISEMIJOIN|ANY|APPLY|AS|ASC|ASSEMBLY|BEGIN|BETWEEN|BROADCASTLEFT|BROADCASTRIGHT|BY|CLIP|CLUSTERED|COMBINE|CREATE|CROSS|CURRENT|DATABASE|DECLARE|DEFAULT|DEFINE|DELETE|DEPLOY|DESC|DIRECT|DISTINCT|DROP|END|ENTITYSPACE|EXCEPT|EXECUTE|EXISTS|EXPORT|EXTRACT|FOLLOWING|FROM|FULL|FUNC|FULLCROSS|GROUP|HASH|HAVING|IF|IMPORT|IN|INTO|INDEXLOOKUP|INNER|INTERSECT|IS|JOIN|LEFT|LOOP|MERGE|MODULE|MULTIPROCESS|NOT|NULL|ON|OPTION|OR|ORDER|OUTER|OUTPUT|OVER|PAIR|PARAMS|PARTITION|PARTITIONCOUNT|PARTITIONED|PARTITIONFUNCTION|PATTERN|PRECEDING|PRESORT|PROCESS|PRODUCE|PUBLICATION|RANGE|READONLY|REDUCE|REFERENCE|RESOURCE|RETURN|RIGHT|ROWSET|SAMPLE|SCHEMA|SELECT|SEMIJOIN|SEQUENCE|SERIAL|SORTED|SPARSE|SSTREAM|STREAMEXPIRY|STREAMSET|STRUCT|TABLE|TO|TOP|UNBOUNDED|UNIFORM|UNION|UNIQUE|UNIVERSE|UPDATE|USE|USING|VIEW|WHERE|WITH|WITHIN)\\b"
-			}, {
-				"name": "keyword.scope",
-				"match": "\\b(false|new|null|true)\\b"
-			}]
-		},
-		"numbers": {
-			"patterns": [{
-				"name": "constant.numeric",
-				"match": "\\b(?<!\\.)(\\d+)((\\.(\\d+))|(l|L))?(?!\\.)\\b"
-			}]
-		},
-		"parameters": {
-			"patterns": [{
-				"name": "variable.parameter.scope",
-				"match": "@\\b([A-Za-z0-9_]*)\\b"
-			}, {
-				"name": "variable.parameter.scope",
-				"match": "@@\\b([A-Za-z0-9_]*)\\b@@"
-			}]
-		},
-		"preprocessor": {
-			"patterns": [{
-				"name": "meta.preprocessor.scope",
-				"match": "#\\b(ANNOTATE|ARGUMENT|DECLARE|ERROR|IF|ELSE|ELSEIF|ENDIF|SET|WARNING|WRITELINE)\\b"
-			}]
-		},
-		"schemas": {
-			"patterns": [{
-				"match": ":\\s*([A-Za-z0-9_\\.]*)(\\<(.*)\\>)?(\\?)?(\\[[0-9]*\\])?\\s*,?",
-				"captures": {
-					"1": {
-						"patterns": [{
-							"include": "#typeName"
-						}]
-					},
-					"3": {
-						"patterns": [{
-							"include": "#typeName"
-						}]
-					}
-				}
-			}]
-		},
-		"strings": {
-			"patterns": [{
-				"name": "string.quoted.double.scope",
-				"begin": "\"",
-				"end": "\"",
-				"patterns": [{
-					"name": "constant.character.escape.scope",
-					"match": "\\\\."
-				}]
-			}, {
-				"name": "string.quoted.double.scope",
-				"begin": "@\"",
-				"end": "\""
-			}]
-		},
-		"types": {
-			"patterns": [{
-				"name": "keyword.scope",
-				"match": "\\b(bool|byte|sbyte|char|decimal|double|float|int|uint|long|ulong|object|short|ushort|string)(\\?)?\\b"
-			}, {
-				"name": "entity.name.type.scope",
-				"match": "\\b(DateTime|Guid|TimeSpan)\\b"
-			}, {
-				"match": "(CSHARP)\\((.*)\\)",
-				"captures": {
-					"1": {
-						"name": "keyword.scope"
-					},
-					"2": {
-						"patterns": [{
-							"include": "#typeName"
-						}]
-					}
-				}
-			}]
-		},
-		"typeName": {
-			"patterns": [{
-				"name": "entity.name.type.scope",
-				"match": "[^<>,\\[\\]\\?\\.]"
-			}]
-		},
-		"using": {
-			"patterns": [{
-				"match": "(?<=USING )([^\\(;]*)",
-				"captures": {
-					"1": {
-						"patterns": [{
-							"include": "#typeName"
-						}]
-					}
-				}
-			}]
-		}
-	},
-	"scopeName": "source.scope"
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Scope",
+  "patterns": [
+    {
+      "include": "#aggregators"
+    },
+    {
+      "include": "#comments"
+    },
+    {
+      "include": "#constructor"
+    },
+    {
+      "include": "#csblock"
+    },
+    {
+      "include": "#functions"
+    },
+    {
+      "include": "#keywords"
+    },
+    {
+      "include": "#numbers"
+    },
+    {
+      "include": "#parameters"
+    },
+    {
+      "include": "#preprocessor"
+    },
+    {
+      "include": "#schemas"
+    },
+    {
+      "include": "#strings"
+    },
+    {
+      "include": "#types"
+    },
+    {
+      "include": "#using"
+    }
+  ],
+  "repository": {
+    "aggregators": {
+      "patterns": [
+        {
+          "match": "\\b(AND|ANY_VALUE|ARRAY_AGG|AVG|BETWEEN|COUNT|COUNTIF|CUME_DIST|DENSE_RANK|FIRST|FIRST_VALUE|IN|LAST_VALUE|LIKE|LIST|MAP_AGG|MAX|MIN|NOT|NOT IN|NOT LIKE|NTILE|OR|PERCENT_RANK|PERCENTILE_CONT|PERCENTILE_DISC|RANK|ROW_NUMBER|STDEV|STDEVP|SUM|VAR|VARP)\\(\\b",
+          "captures": {
+            "1": {
+              "name": "support.function.scope"
+            }
+          }
+        }
+      ]
+    },
+    "comments": {
+      "patterns": [
+        {
+          "name": "comment.line.double-dash.scope",
+          "begin": "//",
+          "end": "$"
+        },
+        {
+          "name": "comment.block.scope",
+          "begin": "/\\*",
+          "end": "\\*/"
+        }
+      ]
+    },
+    "constructor": {
+      "patterns": [
+        {
+          "match": "(?<=new )([^\\(]*)",
+          "captures": {
+            "1": {
+              "patterns": [
+                {
+                  "include": "#typeName"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "csblock": {
+      "patterns": [
+        {
+          "begin": "#CS",
+          "beginCaptures": {
+            "0": {
+              "name": "keyword.scope"
+            }
+          },
+          "end": "#ENDCS",
+          "endCaptures": {
+            "0": {
+              "name": "keyword.scope"
+            }
+          },
+          "patterns": [
+            {
+              "include": "source.cs"
+            }
+          ]
+        }
+      ]
+    },
+    "functions": {
+      "patterns": [
+        {
+          "name": "support.function.scope",
+          "match": "(?<=\\.)(\\w)+(?=\\()"
+        }
+      ]
+    },
+    "keywords": {
+      "patterns": [
+        {
+          "name": "keyword.scope",
+          "match": "\\b(ALL|ALTER|ALTEREVENTTIME|AND|ANTISEMIJOIN|ANY|APPLY|AS|ASC|ASSEMBLY|BEGIN|BETWEEN|BROADCASTLEFT|BROADCASTRIGHT|BY|CALL|CLIP|CLUSTERED|COMBINE|CREATE|CROSS|CURRENT|DATABASE|DECLARE|DEFAULT|DEFINE|DELETE|DEPLOY|DESC|DIRECT|DISTINCT|DROP|END|ENDLOOP|ENTITYSPACE|EXCEPT|EXECUTE|EXISTS|EXPORT|EXTRACT|FOLLOWING|FROM|FULL|FUNC|FULLCROSS|GROUP|HASH|HAVING|IF|IMPORT|IN|INTO|INDEXLOOKUP|INNER|INTERSECT|IS|JOIN|LEFT|LOOP|MERGE|MODULE|MULTIPROCESS|NOT|NULL|ON|OPTION|OR|ORDER|OUTER|OUTPUT|OVER|PAIR|PARAMS|PARTITION|PARTITIONCOUNT|PARTITIONED|PARTITIONFUNCTION|PATTERN|PRECEDING|PRESORT|PROCEDURE|PROCESS|PRODUCE|PUBLICATION|RANGE|READONLY|REDUCE|REFERENCE|RESOURCE|RETURN|RIGHT|ROWSET|ROWSETS|SAMPLE|SCHEMA|SELECT|SEMIJOIN|SEQUENCE|SERIAL|SORTED|SPARSE|SSTREAM|STREAMEXPIRY|STREAMSET|STRUCT|TABLE|TO|TOP|UNBOUNDED|UNIFORM|UNION|UNIQUE|UNIVERSE|UPDATE|USE|USING|VIEW|WHERE|WITH|WITHIN)\\b"
+        },
+        {
+          "name": "keyword.scope",
+          "match": "\\b(false|new|null|true)\\b"
+        }
+      ]
+    },
+    "numbers": {
+      "patterns": [
+        {
+          "name": "constant.numeric",
+          "match": "\\b(?<!\\.)(\\d+)((\\.(\\d+))|(l|L))?(?!\\.)\\b"
+        }
+      ]
+    },
+    "parameters": {
+      "patterns": [
+        {
+          "name": "variable.parameter.scope",
+          "match": "@\\b([A-Za-z0-9_]*)\\b"
+        },
+        {
+          "name": "variable.parameter.scope",
+          "match": "@@\\b([A-Za-z0-9_]*)\\b@@"
+        }
+      ]
+    },
+    "preprocessor": {
+      "patterns": [
+        {
+          "name": "meta.preprocessor.scope",
+          "match": "#\\b(ANNOTATE|ARGUMENT|DECLARE|ELSE|ELSEIF|ENDIF|ENDLOOP|ERROR|EVALUATE|IF|INCLUDE|LOOP|SET|WARNING|WRITELINE)\\b"
+        }
+      ]
+    },
+    "schemas": {
+      "patterns": [
+        {
+          "match": ":\\s*([A-Za-z0-9_\\.]*)(\\<(.*)\\>)?(\\?)?(\\[[0-9]*\\])?\\s*,?",
+          "captures": {
+            "1": {
+              "patterns": [
+                {
+                  "include": "#typeName"
+                }
+              ]
+            },
+            "3": {
+              "patterns": [
+                {
+                  "include": "#typeName"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "strings": {
+      "patterns": [
+        {
+          "name": "string.quoted.double.scope",
+          "begin": "\"",
+          "end": "\"",
+          "patterns": [
+            {
+              "name": "constant.character.escape.scope",
+              "match": "\\\\."
+            }
+          ]
+        },
+        {
+          "name": "string.quoted.double.scope",
+          "begin": "@\"",
+          "end": "\""
+        }
+      ]
+    },
+    "types": {
+      "patterns": [
+        {
+          "name": "keyword.scope",
+          "match": "\\b(bool|byte|sbyte|char|decimal|double|float|int|uint|long|ulong|object|short|ushort|string)(\\?)?\\b"
+        },
+        {
+          "name": "entity.name.type.scope",
+          "match": "\\b(DateTime|Guid|TimeSpan)\\b"
+        },
+        {
+          "match": "(CSHARP)\\((.*)\\)",
+          "captures": {
+            "1": {
+              "name": "keyword.scope"
+            },
+            "2": {
+              "patterns": [
+                {
+                  "include": "#typeName"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    "typeName": {
+      "patterns": [
+        {
+          "name": "entity.name.type.scope",
+          "match": "[^<>,\\[\\]\\?\\.]"
+        }
+      ]
+    },
+    "using": {
+      "patterns": [
+        {
+          "match": "(?<=USING )([^\\(;]*)",
+          "captures": {
+            "1": {
+              "patterns": [
+                {
+                  "include": "#typeName"
+                }
+              ]
+            }
+          }
+        }
+      ]
+    }
+  },
+  "scopeName": "source.scope"
 }
