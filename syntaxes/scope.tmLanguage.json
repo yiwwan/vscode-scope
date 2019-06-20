@@ -46,12 +46,16 @@
     "aggregators": {
       "patterns": [
         {
-          "match": "\\b(AND|ANY_VALUE|ARRAY_AGG|AVG|BETWEEN|COUNT|COUNTIF|CUME_DIST|DENSE_RANK|FIRST|FIRST_VALUE|IN|LAST_VALUE|LIKE|LIST|MAP_AGG|MAX|MIN|NOT|NOT IN|NOT LIKE|NTILE|OR|PERCENT_RANK|PERCENTILE_CONT|PERCENTILE_DISC|RANK|ROW_NUMBER|STDEV|STDEVP|SUM|VAR|VARP)\\(\\b",
+          "match": "\\b(AND|ANY_VALUE|ARRAY_AGG|ARGMAX|AVG|BETWEEN|COUNT|COUNTIF|CUME_DIST|DENSE_RANK|FIRST|FIRST_VALUE|IN|LAST_VALUE|LIKE|LIST|MAP_AGG|MAX|MIN|NOT|NOT IN|NOT LIKE|NTILE|OR|PERCENT_RANK|PERCENTILE_CONT|PERCENTILE_DISC|RANK|ROW_NUMBER|STDEV|STDEVP|SUM|VAR|VARP)\\(\\b",
           "captures": {
             "1": {
               "name": "support.function.scope"
             }
           }
+        },
+        {
+          "name": "support.function.scope",
+          "match": "\\bCOUNT\\("
         }
       ]
     },
