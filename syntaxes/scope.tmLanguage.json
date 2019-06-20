@@ -54,8 +54,12 @@
           }
         },
         {
-          "name": "support.function.scope",
-          "match": "\\bCOUNT\\("
+          "match": "\\b(COUNT)\\(",
+          "captures": {
+            "1": {
+              "name": "support.function.scope"
+            }
+          }
         }
       ]
     },
