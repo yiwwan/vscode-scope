@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.21
+
+- Add ARGMAX, add support for COUNT when the function is empty ([PR #2](https://github.com/yhvicey/vscode-scope/pull/2))
+
 ## 0.0.20
 
 - Support `CALL PROCEDURE`, `ROWSETS` keywords.
