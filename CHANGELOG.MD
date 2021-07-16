@@ -1,12 +1,16 @@
 # Changelog
 
+## 0.0.24
+
+- Fix publishing issue
+
 ## 0.0.23
 
-- Add `REFERENCES` and `EXPIRATION`
+- Add `VALUES`, `REFERENCES` and `EXPIRATION`
 
 ## 0.0.22
 
-- Add `VALUES`
+- Fix single quoted string (char)
 
 ## 0.0.21
 

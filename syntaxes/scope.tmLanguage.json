@@ -204,6 +204,10 @@
           "name": "string.quoted.double.scope",
           "begin": "@\"",
           "end": "\""
+        },
+        {
+          "name": "string.quoted.single.scope",
+          "match": "'.+'"
         }
       ]
     },
