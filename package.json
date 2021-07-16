@@ -56,6 +56,9 @@
     ]
   },
   "devDependencies": {
-    "vsce": "^1.87.1"
+    "vsce": "^1.95.1"
+  },
+  "resolutions": {
+    "css-what": "^5.0.1"
   }
 }
