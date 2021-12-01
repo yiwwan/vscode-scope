@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.0.25
+
+- Support built-in parameters (`@@ParameterName`)
+- Adjusted how `EXTRACT` schema is rendered
+
 ## 0.0.24
 
 - Fix publishing issue
