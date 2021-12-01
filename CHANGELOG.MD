@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.26
+
+- Fix display issue inside `CSHARP(...)` block
+
 ## 0.0.25
 
 - Support built-in parameters (`@@ParameterName`)
