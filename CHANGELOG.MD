@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.27
+
+- Fix display issue inside `EXTRACT...FROM` block
+
 ## 0.0.26
 
 - Fix display issue inside `CSHARP(...)` block
