@@ -149,9 +149,12 @@
       ]
     },
     "extractions": {
-      "begin": "(?<=EXTRACT)",
-      "end": "(?=FROM)",
+      "begin": "(?<=\bEXTRACT\b)",
+      "end": "(?=\bFROM\b)",
       "patterns": [
+        {
+          "include": "#comments"
+        },
         {
           "include": "#schemas"
         },
