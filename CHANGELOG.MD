@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.28
+
+- Add keywords for hints
+
 ## 0.0.27
 
 - Fix display issue inside `EXTRACT...FROM` block
