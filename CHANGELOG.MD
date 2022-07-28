@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.29
+
+- Add more keywords for hints
+
 ## 0.0.28
 
 - Add keywords for hints

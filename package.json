@@ -2,7 +2,7 @@
   "name": "vscode-scope",
   "displayName": "Scope",
   "description": "Providing syntax highlighting for scope/usql scripts & views",
-  "version": "0.0.28",
+  "version": "0.0.29",
   "publisher": "yiwwan",
   "scripts": {
     "package": "vsce package"
@@ -56,10 +56,6 @@
     ]
   },
   "devDependencies": {
-    "vsce": "^2.9.1"
-  },
-  "resolutions": {
-    "minimist": "^1.2.6",
-    "simple-get": "^3.1.1"
+    "vsce": "^2.10.0"
   }
 }
