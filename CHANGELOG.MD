@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.31
+
+- Fix syntax highlighting for external parameters
+
 ## 0.0.30
 
 - Add `CASE`, `WHEN`, `THEN` and `ELSE`

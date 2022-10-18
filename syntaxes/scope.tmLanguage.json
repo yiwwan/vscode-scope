@@ -206,10 +206,10 @@
       "patterns": [
         {
           "name": "variable.parameter.scope",
-          "match": "@?@\\b([A-Za-z0-9_]*)\\b"
+          "match": "@\\b([A-Za-z0-9_]*)\\b"
         },
         {
-          "name": "variable.parameter.scope",
+          "name": "variable.language.scope",
           "match": "@@\\b([A-Za-z0-9_]*)\\b@@"
         }
       ]
@@ -255,17 +255,30 @@
             {
               "name": "constant.character.escape.scope",
               "match": "\\\\."
+            },
+            {
+              "include": "#parameters"
             }
           ]
         },
         {
           "name": "string.quoted.double.scope",
           "begin": "@\"",
-          "end": "\""
+          "end": "\"",
+          "patterns": [
+            {
+              "include": "#parameters"
+            }
+          ]
         },
         {
           "name": "string.quoted.single.scope",
-          "match": "'.+'"
+          "match": "'[^']+'",
+          "patterns": [
+            {
+              "include": "#parameters"
+            }
+          ]
         }
       ]
     },
