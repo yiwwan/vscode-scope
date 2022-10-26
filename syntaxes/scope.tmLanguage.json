@@ -15,6 +15,9 @@
       "include": "#csblock"
     },
     {
+      "include": "#externalParameters"
+    },
+    {
       "include": "#extractions"
     },
     {
@@ -151,6 +154,14 @@
         }
       ]
     },
+    "externalParameters": {
+      "patterns": [
+        {
+          "name": "variable.language.scope",
+          "match": "@@\\b([A-Za-z0-9_]*)\\b@@"
+        }
+      ]
+    },
     "extractions": {
       "begin": "(?<=\bEXTRACT\b)",
       "end": "(?=\bFROM\b)",
@@ -206,11 +217,7 @@
       "patterns": [
         {
           "name": "variable.parameter.scope",
-          "match": "@\\b([A-Za-z0-9_]*)\\b"
-        },
-        {
-          "name": "variable.language.scope",
-          "match": "@@\\b([A-Za-z0-9_]*)\\b@@"
+          "match": "@?@\\b([A-Za-z0-9_]*)\\b"
         }
       ]
     },
@@ -257,7 +264,7 @@
               "match": "\\\\."
             },
             {
-              "include": "#parameters"
+              "include": "#externalParameters"
             }
           ]
         },
@@ -267,7 +274,7 @@
           "end": "\"",
           "patterns": [
             {
-              "include": "#parameters"
+              "include": "#externalParameters"
             }
           ]
         },
@@ -276,7 +283,7 @@
           "match": "'[^']+'",
           "patterns": [
             {
-              "include": "#parameters"
+              "include": "#externalParameters"
             }
           ]
         }

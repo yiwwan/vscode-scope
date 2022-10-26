@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.0.33
+
+- Fix syntax highlighting for parameters within string
+
+## 0.0.32
+
+- Fix syntax highlighting for built-in parameters
+
 ## 0.0.31
 
 - Fix syntax highlighting for external parameters
