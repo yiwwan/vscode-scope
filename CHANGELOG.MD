@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.34
+
+- Add `PROC`
+
 ## 0.0.33
 
 - Fix syntax highlighting for parameters within string
