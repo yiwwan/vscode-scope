@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.35
+
+- Add `REBUILD`
+
 ## 0.0.34
 
 - Add `PROC`
