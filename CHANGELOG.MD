@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.0.36
+
+- Add `ELSEIF`
+
 ## 0.0.35
 
 - Add `REBUILD`
